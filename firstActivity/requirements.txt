@@ -1,0 +1,13 @@
+certifi
+chardet
+click
+Flask
+Flask-SQLAlchemy
+idna
+itsdangerous
+Jinja2
+MarkupSafe
+requests
+SQLAlchemy
+urllib3
+Werkzeug
