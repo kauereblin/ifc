@@ -13,4 +13,8 @@ def index_helicopters():
 
     json_helis_list = [helicopter.json() for helicopter in helicopters]
 
-    return jsonify(json_helis_list)
+    response = jsonify(json_helis_list)
+
+    response.headers.add("Access-Control-Allow-Origin", "*")
+
+    return response

@@ -16,11 +16,11 @@ class HelicopteroDeCombate(db.Model):
         return f'''{self.id}. {self.name}, {self.pilot}, {self.capacity}, {self.propellers}, {self.missile}'''
 
     def json(self):
-        return dumps({
+        return {
             "id": self.id,
             "name": self.name,
             "pilot": self.pilot,
             "capacity": self.capacity,
             "propellers": self.propellers,
             "missile": self.missile,
-        })
+        }
