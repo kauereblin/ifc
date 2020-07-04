@@ -28,7 +28,7 @@ python src/backend/run.py
 
 On terminal, you might see this:
 
-![Back-end server running on terminal](./.github/terminal0.png)
+![Back-end server running on terminal](fNb-end/.github/terminal0.png)
 
 Then, open `index_helis.html`, from the folder `fNb-end/frontend`, manually,
 in your browser
@@ -36,11 +36,11 @@ in your browser
 Your server receives a GET request to access the data, and your terminal will update
 similar to this:
 
-![Terminal with a GET request](./.github/terminal01.png)
+![Terminal with a GET request](fNb-end/.github/terminal01.png)
 
 And your browser will render the following table:
 
-![Browser rendering a table with the registered data](./.github/browser0.png)
+![Browser rendering a table with the registered data](fNb-end/.github/browser0.png)
 
 ## Constribution
 
