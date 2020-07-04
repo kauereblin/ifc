@@ -28,7 +28,7 @@ python src/backend/run.py.py
 ```
 Em seu terminal, aparecerá algo parecido com isso:
 
-![Execução do servidor back-end no terminal](fNb-end/.github/terminal0.png) 
+![Execução do servidor back-end no terminal](./.github/terminal0.png) 
 
 Então, abra o arquivo `index_helis.html`, da pasta `fNb-end/frontend`, manualmente,
 em seu navegador.
@@ -36,11 +36,11 @@ em seu navegador.
 Seu servidor receberá uma requisição `GET` de acesso aos dados, e seu terminal atualizará
 semelhante a isso:
 
-![Terminal com uma requisição GET](fNb-end/.github/terminal01.png)
+![Terminal com uma requisição GET](./.github/terminal01.png)
 
 E seu navegador deverá renderizar a seguinte tabela:
 
-![Navegador com tabela de dados cadastrados](fNb-end/.github/browser0.png)
+![Navegador com tabela de dados cadastrados](./.github/browser0.png)
 
 ## Contribuição
 
