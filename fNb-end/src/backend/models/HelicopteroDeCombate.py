@@ -13,7 +13,8 @@ class HelicopteroDeCombate(db.Model):
     missile = db.Column(db.Boolean)
 
     def __str__(self):
-        return f'''{self.id}. {self.name}, {self.pilot}, {self.capacity}, {self.propellers}, {self.missile}'''
+        return f'''{self.id}. {self.name}, {self.pilot}, {self.capacity},
+        {self.propellers}, {self.missile}'''
 
     def json(self):
         return {
