@@ -2,7 +2,7 @@
 
 Back-end and Front-end system with JSON communication.
 
-[Versão em português](fNb-end/README.pt.md)
+[Versão em português](README.pt.md)
 
 ## Introduction
 
