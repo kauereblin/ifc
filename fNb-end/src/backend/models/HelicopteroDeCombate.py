@@ -10,7 +10,7 @@ class HelicopteroDeCombate(db.Model):
     pilot = db.Column(db.String(254))
     capacity = db.Column(db.Integer)
     propellers = db.Column(db.Integer)
-    missile = db.Column(db.Boolean)
+    missile = db.Column(db.String)
 
     def __str__(self):
         return f'''{self.id}. {self.name}, {self.pilot}, {self.capacity},
