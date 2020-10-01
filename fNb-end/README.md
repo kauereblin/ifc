@@ -38,9 +38,23 @@ similar to this:
 
 ![Terminal with a GET request](./.github/terminal01.png)
 
-And your browser will render the following table:
+And your browser will render the following wellcome page:
 
-![Browser rendering a table with the registered data](./.github/browser0.png)
+![Browser rendering a wellcome apge](./.github/browser1.png)
+
+You can change the pages through the menu bar (Home / List / Include)
+
+In list page you can see the following table:
+
+![A table with the data included in database file](./.github/browser2.png)
+
+And you can include some data like that:
+
+![Browser rendering a form with data required to include in database](./.github/browser3.png)
+
+Then the table will render its included data
+
+![A table with the data included in database file](./.github/browser4.png)
 
 ## Constribution
 

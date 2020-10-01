@@ -2,7 +2,7 @@
 
 Sistema back-end e front-end com comunicação por JSON.
 
-[English version](/README.md)
+[English version](README.md)
 
 ## Introdução
 
@@ -38,9 +38,23 @@ semelhante a isso:
 
 ![Terminal com uma requisição GET](./.github/terminal01.png)
 
-E seu navegador deverá renderizar a seguinte tabela:
+E seu navegador deverá renderizar a seguinte página de boas-vindas:
 
-![Navegador com tabela de dados cadastrados](./.github/browser0.png)
+![Navegador com uma página de boas-vindas](./.github/browser1.png)
+
+Você pode alterar nas diferentes sessões pela barra de menu (Início / Listar / Incluir)
+
+Na página de listagem você poderá ver os dados que já foram inseridos no banco de dados:
+
+![Tabela renderizando os dados do arquivo de banco de dados](./.github/browser2.png)
+
+E você pode inserir alguns dados conforme segue a imagem:
+
+![Navegador renderizando um formulário com dados necessários para serem inseridos no banco de dados](./.github/browser3.png)
+
+Então a tabela se atualizará com os dados inseridos
+
+![Tabela renderizando os dados incluídos no banco de dados](./.github/browser4.png)
 
 ## Contribuição
 
