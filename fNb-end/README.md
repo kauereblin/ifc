@@ -42,11 +42,15 @@ And your browser will render the following wellcome page:
 
 ![Browser rendering a wellcome apge](./.github/browser1.png)
 
-You can change the pages through the menu bar (Home / List / Include)
+You can change the pages through the menu bar
+
+### List Function
 
 In list page you can see the following table:
 
 ![A table with the data included in database file](./.github/browser2.png)
+
+### Create Function
 
 And you can include some data like that:
 
@@ -55,6 +59,16 @@ And you can include some data like that:
 Then the table will render its included data
 
 ![A table with the data included in database file](./.github/browser4.png)
+
+### Delete Function
+
+If you include some wrong data, you can delete the line clicking in the badge written "Excluir".
+
+![A table with the data included in database file marking a line](./.github/browser5.png)
+
+Then it's fade out:
+
+![A table with the data included in database file](./.github/browser6.png)
 
 ## Constribution
 
