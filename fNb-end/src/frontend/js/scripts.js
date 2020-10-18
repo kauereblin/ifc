@@ -1,4 +1,4 @@
-$(function () {
+$(() => {
 
   function show_helicopters() {
     // Request all registered helicopters
@@ -8,7 +8,7 @@ $(function () {
       dataType: 'json',
       success: listHelicopters,
       error: function () {
-        alert("Error: Search on read");
+        alert("Error: Search on back-end");
       }
     });
 
@@ -18,13 +18,18 @@ $(function () {
 
       toggleVisibilityContent("helicoptersTable");
 
-      for (var i in helicopters) {
-        newLine = `<tr>
-          <td> ${helicopters[i].name} </td>
-          <td> ${helicopters[i].pilot} </td>
-          <td> ${helicopters[i].capacity} </td>
-          <td> ${helicopters[i].propellers}  </td>
-          <td> ${helicopters[i].missile} </td>
+      for (var helicopter of helicopters) {
+        newLine = `<tr id="line_${helicopter.id}">
+          <td> ${helicopter.name} </td>
+          <td> ${helicopter.pilot} </td>
+          <td> ${helicopter.capacity} </td>
+          <td> ${helicopter.propellers}  </td>
+          <td> ${helicopter.missile} </td>
+          <td>
+            <a href=# id="${helicopter.id}" class="delete_helicopter">
+                <p class="badge badge-danger">Excluir</p>
+            </a>
+          </td>
           </tr>`
 
         $('#helicoptersContentTable').append(newLine);
@@ -38,15 +43,15 @@ $(function () {
     $(`#${identifier}`).removeClass('invisible');
   }
 
-  $(document).on("click", "#showHelicopters", function() {
+  $(document).on("click", "#showHelicopters", () => {
     show_helicopters();
   });
 
-  $(document).on("click", "#goToIndex", function() {
+  $(document).on("click", "#goToIndex", () => {
     toggleVisibilityContent("initialContent");
   });
 
-  $(document).on("click", "#btnCreateHelicopter", function() {
+  $(document).on("click", "#btnCreateHelicopter", () => {
     name = $("#inputName").val();
     pilot = $("#inputPilot").val();
     capacity = $("#inputCapacity").val();
@@ -66,8 +71,7 @@ $(function () {
     });
 
     function includedAlert (returnedData) {
-      console.log(returnedData)
-        if (returnedData.result == "ok") {
+        if (returnedData.result === "ok") {
             alert("Helicóptero cadastrado com sucesso!");
             $("#inputName").val("");
             $("#inputPilot").val("");
@@ -76,7 +80,7 @@ $(function () {
             $("#inputMissile").val("");
         } else {
             alert(`${returnedData.result}: ${returnedData.datails}`);
-        }            
+        }
     }
 
     function includedErrorAlert (returnedData) {
@@ -84,9 +88,33 @@ $(function () {
       }
   });
 
-  $('#modalCreateHelicopter').on('hide.bs.modal', function (e) {
+  $('#modalCreateHelicopter').on('hide.bs.modal', (e) => {
     if (! $("#helicoptersTable").hasClass('invisible')) {
         show_helicopters();
+    }
+  });
+
+  $(document).on("click", ".delete_helicopter", function() {
+    var idHelicopter = $(this).attr("id");
+
+    $.ajax({
+      url: `http://localhost:5000/delete_helicopter/${idHelicopter}`,
+      type: "DELETE",
+      dataType: 'json',
+      success: deleteHelicopter,
+      error: deleteError
+    });
+
+    function deleteHelicopter(returnedData) {
+      if (returnedData.result === "ok") {
+        $(`#line_${idHelicopter}`).fadeOut();
+      } else {
+        alert(`ERROR: ${returnedData.result}: ${returnedData.datails}`);
+      }
+    }
+
+    function deleteError(returnedData) {
+      alert("Error: Search on back-end");
     }
   });
 
