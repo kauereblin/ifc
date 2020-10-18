@@ -30,7 +30,23 @@ def create_helicopter():
         db.session.commit()
     except Exception as e:
             response = jsonify({ "result": "error", "details": str(e) })
-    
+
+    response.headers.add("Access-Control-Allow-Origin", "*")
+
+    return response
+
+@app.route('/delete_helicopter/<int:helicopter_id>', methods=['DELETE'])
+def delete_helicopter(helicopter_id):
+    response = jsonify({ "result": "ok", "details": "ok" })
+
+    try:
+        HelicopteroDeCombate.query.filter(
+            HelicopteroDeCombate.id == helicopter_id).delete()
+        db.session.commit()
+
+    except Exception as e:
+        response = jsonify({ "result": "error", "details": str(e) })
+
     response.headers.add("Access-Control-Allow-Origin", "*")
 
     return response
