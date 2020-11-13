@@ -70,6 +70,12 @@ Então a linha desaparece:
 
 ![Tabela renderizando os dados incluídos no banco de dados](./.github/browser6.png)
 
+### Composição e Agregação
+
+Depois da implementação de duas novas classes, os testes mostram o relacionamento entre elas:
+
+![Terminal renderizando dados salvos no back-end](./.github/terminal02.png)
+
 ## Contribuição
 
 Se houver alguma dúvida, ou incremento para este, crie um pull request para a

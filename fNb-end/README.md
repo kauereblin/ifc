@@ -70,6 +70,12 @@ Then it's fade out:
 
 ![A table with the data included in database file](./.github/browser6.png)
 
+### Composition and Aggregation
+
+After implementing two new classes, the tests show the relationship between them:
+
+![Terminal rendering the save data in back-end](./.github/terminal02.png)
+
 ## Constribution
 
 If you have some doubt or you developed a feature, create a pull request to the update.
