@@ -109,7 +109,7 @@ $(() => {
       if (returnedData.result === "ok") {
         $(`#line_${idHelicopter}`).fadeOut();
       } else {
-        alert(`ERROR: ${returnedData.result}: ${returnedData.datails}`);
+        alert(`ERROR: ${returnedData.result}: ${returnedData.details}`);
       }
     }
 
