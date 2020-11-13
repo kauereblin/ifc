@@ -76,6 +76,10 @@ After implementing two new classes, the tests show the relationship between them
 
 ![Terminal rendering the save data in back-end](./.github/terminal02.png)
 
+Following the UML diagram bellow:
+
+![UML Diagram](./.github/diagrama_UML.png)
+
 ## Constribution
 
 If you have some doubt or you developed a feature, create a pull request to the update.

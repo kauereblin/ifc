@@ -76,6 +76,10 @@ Depois da implementação de duas novas classes, os testes mostram o relacioname
 
 ![Terminal renderizando dados salvos no back-end](./.github/terminal02.png)
 
+Seguindo o Diagrama UML abaixo:
+
+![Diagrama UML](./.github/diagrama_UML.png)
+
 ## Contribuição
 
 Se houver alguma dúvida, ou incremento para este, crie um pull request para a
