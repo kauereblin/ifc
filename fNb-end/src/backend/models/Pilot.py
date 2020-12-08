@@ -8,12 +8,10 @@ class Pilot(db.Model):
   patent = db.Column(db.String(254), nullable=False)
   blood_type = db.Column(db.String(254), nullable=False)
 
-  hangar_pilot = db.relationship("Hangar", back_populates="pilot_hangar")
-
 
   def __str__(self):
     return f'''{self.id}. {self.name}, {self.age}, {self.patent},
-        {self.blood_type}, {self.hangar_pilot}'''
+        {self.blood_type}'''
 
 
   def json(self):
@@ -22,6 +20,5 @@ class Pilot(db.Model):
             "name": self.name,
             "age": self.age,
             "patent": self.patent,
-            "blood_type": self.blood_type,
-            "hangar_pilot": self.hangar_pilot,
+            "blood_type": self.blood_type
         }
