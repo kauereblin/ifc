@@ -80,6 +80,22 @@ Following the UML diagram bellow:
 
 ![UML Diagram](./.github/diagrama_UML.png)
 
+### Listing classes
+
+After updating the front-end, check the following pages:
+
+__Combat Helicopters__
+
+![The Helicopters table with the data included in database file](./.github/browser7.png)
+
+__Pilots__
+
+![The Pilots table with the data included in database file](./.github/browser8.png)
+
+__Hangars__
+
+![The Hangars table with the data included in database file](./.github/browser9.png)
+
 ## Constribution
 
 If you have some doubt or you developed a feature, create a pull request to the update.

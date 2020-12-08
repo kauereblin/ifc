@@ -80,6 +80,22 @@ Seguindo o Diagrama UML abaixo:
 
 ![Diagrama UML](./.github/diagrama_UML.png)
 
+### Listando classes
+
+Após a atualização do front-end, verifica-se as seguintes páginas:
+
+__Helicópteros de Combate__
+
+![Tabela de helicópteros renderizando os dados incluídos no banco de dados](./.github/browser7.png)
+
+__Pilotos__
+
+![Tabela de pilotos renderizando os dados incluídos no banco de dados](./.github/browser8.png)
+
+__Hangares__
+
+![Tabela de hangares renderizando os dados incluídos no banco de dados](./.github/browser9.png)
+
 ## Contribuição
 
 Se houver alguma dúvida, ou incremento para este, crie um pull request para a
