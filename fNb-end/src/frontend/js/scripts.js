@@ -1,14 +1,14 @@
 $(() => {
-
+  /* Show Functions */
   function show_helicopters() {
     // Request all registered helicopters
     $.ajax({
-      url: 'http://localhost:5000/index_helicopters',
+      url: 'http://localhost:5000/index/helicoptero-de-combates',
       method: 'GET',
       dataType: 'json',
       success: listHelicopters,
       error: function () {
-        alert("Error: Search on back-end");
+        alert("Erro com os helicópteros: Verifique o back-end");
       }
     });
 
@@ -16,12 +16,11 @@ $(() => {
       // Add all requested helicopters in the table
       $('#helicoptersContentTable').empty();
 
-      toggleVisibilityContent("helicoptersTable");
+      toggleVisibilityContent("helicopters");
 
       for (var helicopter of helicopters) {
         newLine = `<tr id="line_${helicopter.id}">
           <td> ${helicopter.name} </td>
-          <td> ${helicopter.pilot} </td>
           <td> ${helicopter.capacity} </td>
           <td> ${helicopter.propellers}  </td>
           <td> ${helicopter.missile} </td>
@@ -37,29 +36,109 @@ $(() => {
     }
   }
 
-  function toggleVisibilityContent(identifier){
-    $("#helicoptersTable").addClass('invisible');
-    $("#initialContent").addClass('invisible');
-    $(`#${identifier}`).removeClass('invisible');
+
+  function show_pilots() {
+    // Request all registered pilots
+    $.ajax({
+      url: 'http://localhost:5000/index/pilots',
+      method: 'GET',
+      dataType: 'json',
+      success: listPilots,
+      error: function () {
+        alert("Erro com os pilotos: Verifique o back-end");
+      }
+    });
+
+    function listPilots(pilots) {
+      // Add all requested pilots in the table
+      $('#pilotsContentTable').empty();
+
+      toggleVisibilityContent("pilots");
+
+      for (var pilot of pilots) {
+        newLine = `<tr id="line_${pilot.id}">
+          <td> ${pilot.name} </td>
+          <td> ${pilot.age} </td>
+          <td> ${pilot.patent}  </td>
+          <td> ${pilot.blood_type} </td>
+          </tr>`
+
+        $('#pilotsContentTable').append(newLine);
+      }
+    }
   }
 
+  function show_hangars() {
+    $.ajax({
+      url: 'http://localhost:5000/index/hangars',
+      method: 'GET',
+      dataType: 'json',
+      success: listHangars,
+      error: function () {
+        alert("Erro com os hangares: Verifique o back-end");
+      }
+    });
+
+    function listHangars(hangars) {
+      $('#hangarsContentTable').empty();
+
+      toggleVisibilityContent("hangars");
+
+      for (var hangar of hangars) {
+        newLine = `<tr id="line_${hangar.id}">
+          <td> ${hangar.name} </td>
+          <td> ${hangar.country} </td>
+          <td> ${hangar.pilot.name}  </td>
+          <td> ${hangar.pilot.age}  </td>
+          <td> ${hangar.pilot.patent}  </td>
+          <td> ${hangar.pilot.blood_type}  </td>
+          <td> ${hangar.helicopter.name} </td>
+          <td> ${hangar.helicopter.capacity} </td>
+          <td> ${hangar.helicopter.propellers} </td>
+          <td> ${hangar.helicopter.missile} </td>
+          </tr>`
+
+        $('#hangarsContentTable').append(newLine);
+      }
+    }
+  }
+  /* End Show Functions */
+
+  function toggleVisibilityContent(identifier){
+    $("#helicopters").addClass('d-none');
+    $("#pilots").addClass('d-none');
+    $("#hangars").addClass('d-none');
+    $("#initialContent").addClass('d-none');
+    $(`#${identifier}`).removeClass('d-none');
+  }
+
+  /* Navigation */
   $(document).on("click", "#showHelicopters", () => {
     show_helicopters();
+  });
+
+  $(document).on("click", "#showPilots", () => {
+    show_pilots();
+  });
+
+  $(document).on("click", "#showHangars", () => {
+    show_hangars();
   });
 
   $(document).on("click", "#goToIndex", () => {
     toggleVisibilityContent("initialContent");
   });
+  /* End Navigation */
 
   $(document).on("click", "#btnCreateHelicopter", () => {
     name = $("#inputName").val();
-    pilot = $("#inputPilot").val();
     capacity = $("#inputCapacity").val();
     propellers = $("#inputPropellers").val();
     missile = $("#inputMissile").val();
 
-    var insertData = JSON.stringify({ name: name, pilot: pilot,
+    var insertData = JSON.stringify({ name: name,
       capacity: capacity, propellers: propellers, missile: missile });
+
     $.ajax({
         url: 'http://localhost:5000/create_helicopter',
         type: 'POST',
@@ -74,7 +153,6 @@ $(() => {
         if (returnedData.result === "ok") {
             alert("Helicóptero cadastrado com sucesso!");
             $("#inputName").val("");
-            $("#inputPilot").val("");
             $("#inputCapacity").val("");
             $("#inputPropellers").val("");
             $("#inputMissile").val("");
