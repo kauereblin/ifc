@@ -18,15 +18,23 @@
             <span class="navbar-text">Gerência de Helicópteros de Combate</span>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="#" id="goToIndex">Início</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" id="showHelicopters">Listar</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownRegisters"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                        >
+                            Registros
+                        </a>
+                        <div class="dropdown-menu" style="background-color: #AAA;" aria-labelledby="navbarDropdownRegisters">
+                            <a class="dropdown-item" href="#" id="showHelicopters">Helicópteros</a>
+                            <a class="dropdown-item" href="#" id="showPilots">Pilotos</a>
+                        </div>
                     </li>
-                    <li nav-item>
-                        <a class="nav-link" href="#" data-toggle="modal" data-target="#modalCreateHelicopter">Incluir</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="showHangars">Hangares</a>
                     </li>
                 </ul>
             </div>
@@ -38,25 +46,30 @@
         </nav>
 
         <main id="mainContent">
-            <table class="table invisible table-borderless text-light" id="helicoptersTable">
-                <thead style="background-color: #303030;">
-                    <tr>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Piloto</th>
-                        <th scope="col">Capacidade</th>
-                        <th scope="col">Hélices</th>
-                        <th scope="col">Míssil</th>
-                        <th scope="col">Operação</th>
-                    </tr>
-                </thead>
-                <tbody id="helicoptersContentTable">
-                </tbody>
-            </table>
-
-            <div id="initialContent" class="invisible">
+            <div id="initialContent">
                 <h1 class="rounded-pill text-center text-light border">Bem vindo ao cadastro de helicópteros!</h1>
                 <br><br>
                 <p class="text-light" style="margin: 0; margin-top: 50%; margin-left: 60%;">Não tem nada aqui, pode passar para as próximas páginas...</p>
+            </div>
+
+            <div class="container" id="helicopters">
+                <table class="table table-borderless text-light m-0" id="helicoptersTable">
+                    <thead style="background-color: #303030;">
+                        <tr>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Capacidade</th>
+                            <th scope="col">Hélices</th>
+                            <th scope="col">Míssil</th>
+                            <th scope="col">Operação</th>
+                        </tr>
+                    </thead>
+                    <tbody id="helicoptersContentTable">
+                        <!-- Registered Helicopters -->
+                    </tbody>
+                </table>
+                <div class="d-flex container justify-content-end">
+                    <a class="nav-item nav-link text-light" href="#" data-toggle="modal" data-target="#modalCreateHelicopter">Incluir +</a>
+                </div>
             </div>
 
             <div class="modal fade" id="modalCreateHelicopter" tabindex="-1" role="dialog"
@@ -64,7 +77,7 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Incluir pessoa</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Incluir Helicóptero</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -76,12 +89,6 @@
                                     <input type="text" class="form-control" id="inputName"
                                         aria-describedby="nomeHelp" placeholder="Nome">
                                     <small id="nomeHelp" class="form-text text-muted">Informe o nome do Helicóptero de Combate.</small>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputPilot">Piloto</label>
-                                    <input type="text" class="form-control" id="inputPilot"
-                                        aria-describedby="pilotHelp" placeholder="Robson Norris">
-                                    <small id="pilotHelp" class="form-text text-muted">Informe o nome do piloto.</small>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputCapacity">Capacidade</label>
@@ -108,6 +115,92 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="container" id="pilots">
+                <!-- a class="nav-item nav-link" href="#" data-toggle="modal" data-target="#modalCreatePilot">Incluir</a -->
+
+                <table class="table table-borderless text-light" id="pilotsTable">
+                    <thead style="background-color: #303030;">
+                        <tr>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Idade</th>
+                            <th scope="col">Patente</th>
+                            <th scope="col">Tipo Sanguíneo</th>
+                        </tr>
+                    </thead>
+                    <tbody id="pilotsContentTable">
+                        <!-- Registered Pilots -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- div class="modal fade" id="modalCreatePilot" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Incluir Piloto</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="inputName">Nome</label>
+                                    <input type="text" class="form-control" id="inputName"
+                                        aria-describedby="nomeHelp" placeholder="Maico Russo">
+                                    <small id="nomeHelp" class="form-text text-muted">Informe o nome do Piloto.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputCapacity">Idade</label>
+                                    <input type="text" class="form-control" id="inputCapacity"
+                                        aria-describedby="capacityHelp" placeholder="30">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPropellers">Patente</label>
+                                    <input type="text" class="form-control" id="inputPropellers"
+                                        aria-describedby="propellersHelp" placeholder="Capitão">
+                                    <small id="propellersHelp" class="form-text text-muted">Informe a patente do Piloto.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputMissile">Tipo Sanguíneo</label>
+                                    <input type="text" class="form-control" id="inputMissile"
+                                        aria-describedby="missileHelp" placeholder="O+">
+                                </div>
+                              </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button id="btnCreatePilot" type="button" class="btn btn-primary">Incluir</button>
+                        </div>
+                    </div>
+                </div>
+            </div -->
+
+            <div class="container" id="hangars">
+                <!-- a class="nav-item nav-link" href="#" data-toggle="modal" data-target="#modalCreateHelicopter">Incluir</a -->
+
+                <table class="table table-borderless text-light" id="hangarsTable">
+                    <thead style="background-color: #303030;">
+                        <tr>
+                            <th scope="col">Nome</th>
+                            <th scope="col">País</th>
+                            <th scope="col">Piloto</th>
+                            <th scope="col">Idade</th>
+                            <th scope="col">Patente</th>
+                            <th scope="col">Sangue</th>
+                            <th scope="col">Helicóptero</th>
+                            <th scope="col">Capacidade</th>
+                            <th scope="col">Hélices</th>
+                            <th scope="col">Mísseis</th>
+                        </tr>
+                    </thead>
+                    <tbody id="hangarsContentTable">
+                        <!-- Registered Hangars -->
+                    </tbody>
+                </table>
             </div>
         </main>
     </div>
